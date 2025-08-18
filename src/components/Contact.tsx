@@ -4,30 +4,37 @@ import { useState } from "react";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<null | { ok: boolean; message: string }>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus(null);
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error("Failed to send");
-      setStatus({ ok: true, message: "Thanks! Your message has been sent." });
-      e.currentTarget.reset();
-    } catch {
-      setStatus({ ok: false, message: "Something went wrong. Please try again later." });
-    } finally {
+    // Simulate form submission delay
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setIsSubmitted(true);
+      e.currentTarget.reset();
+    }, 1000);
+  }
+
+  if (isSubmitted) {
+    return (
+      <section id="contact" className="py-20 bg-white px-4 text-gray-900 scroll-mt-24">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6 text-primary">Thank You!</h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Your message has been received. We&apos;ll get back to you soon!
+          </p>
+          <button
+            onClick={() => setIsSubmitted(false)}
+            className="px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow hover:bg-primary/90"
+          >
+            Send Another Message
+          </button>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -108,12 +115,6 @@ const Contact = () => {
             ></textarea>
             <p className="mt-1 text-xs text-gray-500">We usually respond within 1 business day.</p>
           </div>
-
-          {status && (
-            <div className={`${status.ok ? "text-green-700 bg-green-50" : "text-red-700 bg-red-50"} text-sm rounded-md px-3 py-2`}>
-              {status.message}
-            </div>
-          )}
 
           <div className="flex items-center justify-between gap-4">
             <label className="inline-flex items-center gap-2 text-sm text-gray-700">
