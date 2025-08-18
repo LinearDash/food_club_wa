@@ -5,9 +5,12 @@ import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  // Get current page path for conditional navigation behavior
   const pathname = usePathname();
   const isHome = pathname === "/";
 
+  // Handle clicks on About/Contact links for smooth scrolling on homepage
+  // On other pages, these links navigate normally
   const handleInPageClick = (e: React.MouseEvent, id: string) => {
     if (!isHome) return; // allow normal navigation on other pages
     e.preventDefault();
@@ -24,17 +27,23 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white border-t border-white/10">
       <div className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
+        {/* Footer content grid - responsive: 2 columns on mobile, 4 on desktop */}
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 items-start">
+          {/* Company info and description */}
           <div>
             <p className="font-semibold text-lg">Food Club WA Pty Ltd</p>
             <p className="text-white/80 text-sm mt-2">Bold flavors on wheels. Track us, find us, and grab a bite!</p>
           </div>
+
+          {/* Contact information */}
           <div>
             <p className="font-semibold">Contact</p>
             <p className="text-white/80 text-sm mt-2">📍 29A Ewart Street, Midvale WA 6056</p>
             <p className="text-white/80 text-sm">📞 0430 067 850</p>
             <p className="text-white/80 text-sm">📧 foodclubwa2023@gmail.com</p>
           </div>
+
+          {/* Quick navigation links */}
           <div>
             <p className="font-semibold">Quick Links</p>
             <ul className="mt-2 space-y-1 text-sm text-white/90">
@@ -47,6 +56,7 @@ export default function Footer() {
               <li>
                 <Link href="/events" className="hover:underline">Events</Link>
               </li>
+              {/* About/Contact use smooth scroll on homepage, normal navigation elsewhere */}
               <li>
                 <Link href="/#about" onClick={(e) => handleInPageClick(e, "about")} className="hover:underline">About</Link>
               </li>
@@ -55,9 +65,12 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* Social media links */}
           <div>
             <p className="font-semibold">Follow Us</p>
             <div className="flex gap-3 mt-2">
+              {/* Instagram link */}
               <a
                 href="https://www.instagram.com/foodclub_wa/"
                 target="_blank"
@@ -67,6 +80,8 @@ export default function Footer() {
               >
                 <FaInstagram className="w-5 h-5" />
               </a>
+
+              {/* Facebook link */}
               <a
                 href="https://www.facebook.com/FoodClubWA"
                 target="_blank"
@@ -79,6 +94,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Footer bottom - copyright and back to top */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/80">
           <p>© {new Date().getFullYear()} Food Club WA Pty Ltd. All rights reserved.</p>
           <Link href="/#home" onClick={(e) => handleInPageClick(e, "home")} className="hover:underline">Back to top ↑</Link>

@@ -1,6 +1,10 @@
+// Full Menu page - displays all available food items
+// This is a dedicated page accessible from the homepage menu preview
 import FoodCard from "@/components/cards/foodCard";
 
 export default function MenuPage() {
+  // Complete menu data - all available food items with descriptions
+  // In a real app, this would come from a CMS or database
   const items = [
     { name: "Beef Burger and Chips", price: "$18", img: "/Food_Photo/BeefBurgerandchips.jpg", description: "Grilled beef, cheddar, lettuce, tomato, and crispy chips." },
     { name: "Cinnamon and Berry Donut", price: "$16", img: "/Food_Photo/CinnamonandberryDonut.jpg", description: "Cinnamon sugar donut topped with fresh berries." },
@@ -18,8 +22,11 @@ export default function MenuPage() {
 
   return (
     <section className="pt-24 py-20 bg-gray-50 text-gray-900 px-4">
+      {/* Page heading and description */}
       <h1 className="text-4xl font-bold text-center mb-6 text-primary">Full Menu</h1>
-      <p className="text-center text-gray-700 mb-12">All your favorites from Food Truck WA</p>
+      <p className="text-center text-gray-700 mb-12">All your favorites from Food Club WA</p>
+
+      {/* Menu items grid - responsive: 1 column on mobile, 2 on tablet, 3 on desktop */}
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8">
         {items.map((item, i) => (
           <FoodCard key={i} name={item.name} price={item.price} img={item.img} description={item.description} />

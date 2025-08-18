@@ -2,6 +2,7 @@ import EventCard from "@/components/cards/eventCard";
 import Link from "next/link";
 
 const Events = () => {
+  // Sample event data - in a real app, this would come from a CMS or API
   const events = [
     { name: "Central Park Pop-up", date: "Aug 20", location: "Central Park, Pokhara", img: "/TruckPic.png" },
     { name: "Lakeside Food Fest", date: "Sep 5", location: "Lakeside", img: "/TruckPic.png" },
@@ -10,7 +11,10 @@ const Events = () => {
 
   return (
     <section id="events" className="py-20 bg-white px-4 text-gray-900 scroll-mt-24">
-      <h2 className="text-3xl font-bold text-center mb-10 text-primary">Our Past Events</h2>
+      {/* Section heading */}
+      <h2 className="text-3xl font-bold text-center mb-10 text-primary">Catch Us At 🎉</h2>
+
+      {/* Events grid - responsive: 1 column on mobile, 2 on tablet, 3 on desktop */}
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {events.map((e) => (
           <EventCard key={`${e.name}-${e.date}`} name={e.name} date={e.date} location={e.location} img={e.img} />
