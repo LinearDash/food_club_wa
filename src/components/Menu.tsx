@@ -11,7 +11,7 @@ const Menu = () => {
   ];
 
   return (
-    <section id="menu" className="py-20 bg-gray-50 text-gray-900 scroll-mt-24">
+    <section id="menu" className="py-20 bg-background-alt text-gray-900 scroll-mt-24">
       {/* Section heading */}
       <h2 className="text-3xl font-bold text-center mb-10 text-primary">Our Menu</h2>
 

@@ -1,11 +1,35 @@
+"use client";
+
 const Hero = () => {
   return (
     <section
       id="home"
-      className="h-screen flex flex-col justify-center items-center bg-[url('/TruckPic.png')] bg-cover bg-center text-white relative"
+      className="h-screen flex flex-col justify-center items-center bg-[url('/TruckPic.png')] bg-cover bg-center text-white relative overflow-hidden"
     >
       {/* Gradient overlay for better text contrast over the background image */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
+
+      {/* Animated van */}
+      <div
+        className="absolute bottom-10 animate-[move-left_20s_linear_infinite] text-6xl sm:text-7xl w-screen flex justify-end cursor-pointer"
+        onClick={() => {
+          const audio = new Audio('/audio/honk.mp3');
+          audio.play();
+        }}
+      >
+        🚐💨
+      </div>
+
+      <style jsx>{`
+        @keyframes move-left {
+          0% {
+        transform: translateX(100%);
+          }
+          100% {
+        transform: translateX(-100%);
+          }
+        }
+      `}</style>
 
       {/* Main hero content - positioned above the overlay */}
       <div className="relative z-10 max-w-xl px-6 sm:px-0 text-center">

@@ -13,14 +13,19 @@
 
 /* Tailwind theme configuration - maps CSS vars to Tailwind classes */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  /* Primary font family */
   --font-mono: var(--font-geist-mono);
-  /* Monospace font for code */
-  --color-primary: #dc2626;
-  /* Brand red color - used throughout the site */
+
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+
+  --color-primary: #dc2626; /* Bold red */
+  --color-secondary: #22c55e; /* Fresh green */
+  --color-accent: #ffd700; /* Gold for highlights */
+
+  --color-muted: #6b7280; /* Secondary text */
+  --color-background-alt: #f9fafb; /* Off-white sections */
+  --color-border: #e5e7eb; /* Subtle dividers */
 }
 
 /* Base body styles */
@@ -40,7 +45,6 @@ html {
 
 /* Floating animation for hero decorations */
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0);
