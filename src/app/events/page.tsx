@@ -9,8 +9,8 @@ export default function EventsPage() {
 
   return (
     <section className="pt-24 py-20 bg-gray-50 text-gray-900 px-4">
-      <h1 className="text-4xl font-bold text-center mb-6 text-primary">Upcoming Events</h1>
-      <p className="text-center text-gray-700 mb-12">Find Food Truck WA at these locations and dates</p>
+      <h1 className="text-4xl font-bold text-center mb-6 text-primary">Our Past Events</h1>
+      <p className="text-center text-gray-700 mb-12">Our Food Truck WA has been to these locations and dates</p>
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8">
         {events.map((e) => (
           <EventCard key={`${e.name}-${e.date}`} name={e.name} date={e.date} location={e.location} img={e.img} />

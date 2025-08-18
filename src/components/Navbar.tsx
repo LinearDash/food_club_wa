@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
+import Image from "next/image";
 
 const sections = ["home", "menu", "events", "about", "contact"];
 
@@ -71,7 +72,10 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full bg-primary text-white shadow-lg z-50 border-b border-white/10">
       <div className="max-w-6xl mx-auto flex justify-between items-center p-3 sm:p-4">
-        <h1 className="font-bold text-xl sm:text-2xl">Food Truck WA 🚚</h1>
+        <Link href="/" className="flex items-center gap-3">
+          <Image src="/Logo.png" alt="Food Truck WA logo" width={36} height={36} className="rounded-full" />
+          <span className="font-bold text-xl sm:text-2xl">Food Truck WA</span>
+        </Link>
         <button
           className="md:hidden inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 hover:bg-white/20"
           onClick={() => setIsOpen(true)}
