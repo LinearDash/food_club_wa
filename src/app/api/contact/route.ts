@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-// @ts-expect-error: No types for nodemailer in this project
 import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
@@ -43,8 +42,8 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ ok: true });
-  } catch (err: any) {
-    console.error("Contact API error", err);
+  } catch (error: unknown) {
+    console.error("Contact API error", error);
     return NextResponse.json({ error: "Failed to send message" }, { status: 500 });
   }
 }

@@ -23,7 +23,7 @@ const Contact = () => {
       if (!res.ok) throw new Error("Failed to send");
       setStatus({ ok: true, message: "Thanks! Your message has been sent." });
       e.currentTarget.reset();
-    } catch (err) {
+    } catch {
       setStatus({ ok: false, message: "Something went wrong. Please try again later." });
     } finally {
       setIsSubmitting(false);
@@ -33,7 +33,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-white px-4 text-gray-900 scroll-mt-24">
       <h2 className="text-3xl font-bold text-center mb-3 text-primary">Get In Touch</h2>
-      <p className="text-center text-gray-600 mb-10">Questions, catering, or collabs? Drop us a line and we'll get back to you.</p>
+      <p className="text-center text-gray-600 mb-10">Questions, catering, or collabs? Drop us a line and we&apos;ll get back to you.</p>
       <div className="max-w-3xl mx-auto">
         {/* Info */}
         <div className="mb-6 text-center text-sm text-gray-700">
