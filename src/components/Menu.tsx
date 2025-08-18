@@ -3,9 +3,9 @@ import FoodCard from "@/components/cards/foodCard";
 
 const Menu = () => {
   const items = [
-    { name: "Beef Burger and Chips", price: "$8", img: "/BeefBurgerandchips.jpg" },
-    { name: "Cinnamon and Berry Donut", price: "$6", img: "/CinnamonandberryDonut.jpg" },
-    { name: "Schnitzel Loaded Chicken", price: "$5", img: "/schnitzloadedchicken.jpg" },
+    { name: "Beef Burger and Chips", price: "$8", img: "/Food_Photo/BeefBurgerandchips.jpg" },
+    { name: "Cinnamon and Berry Donut", price: "$6", img: "/Food_Photo/CinnamonandberryDonut.jpg" },
+    { name: "Schnitzel Loaded Chicken", price: "$5", img: "/Food_Photo/schnitzloadedchicken.jpg" },
   ];
   return (
     <section id="menu" className="py-20 bg-gray-50 text-gray-900">

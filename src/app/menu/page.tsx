@@ -2,15 +2,18 @@ import FoodCard from "@/components/cards/foodCard";
 
 export default function MenuPage() {
   const items = [
-    { name: "Beef Burger and Chips", price: "$8", img: "/BeefBurgerandchips.jpg" },
-    { name: "Cinnamon and Berry Donut", price: "$6", img: "/CinnamonandberryDonut.jpg" },
-    { name: "Schnitzel Loaded Chicken", price: "$5", img: "/schnitzloadedchicken.jpg" },
-    { name: "Classic Hotdog", price: "$7", img: "/TruckPic.png" },
-    { name: "Loaded Fries", price: "$5", img: "/TruckPic.png" },
-    { name: "Veggie Wrap", price: "$6", img: "/TruckPic.png" },
-    { name: "Spicy Tacos", price: "$7", img: "/TruckPic.png" },
-    { name: "Grilled Cheese", price: "$4", img: "/TruckPic.png" },
-    { name: "Chicken Nuggets", price: "$5", img: "/TruckPic.png" },
+    { name: "Beef Burger and Chips", price: "$8", img: "/Food_Photo/BeefBurgerandchips.jpg" },
+    { name: "Cinnamon and Berry Donut", price: "$6", img: "/Food_Photo/CinnamonandberryDonut.jpg" },
+    { name: "Schnitzel Loaded Chicken", price: "$5", img: "/Food_Photo/schnitzloadedchicken.jpg" },
+    { name: "Chicken Manchurian", price: "$7", img: "/Food_Photo/ChickenManchurian.jpg" },
+    { name: "Chicken Over Rice", price: "$7", img: "/Food_Photo/Chickenoverrice.jpg" },
+    { name: "Fish and Chips", price: "$7", img: "/Food_Photo/fishandchips.jpg" },
+    { name: "Lemon Pepper Squid", price: "$8", img: "/Food_Photo/LemonPepperSquid.jpg" },
+    { name: "Nuggets and Chips", price: "$5", img: "/Food_Photo/Nuggetsandchips.jpg" },
+    { name: "Pork Belly and Rice", price: "$9", img: "/Food_Photo/PorkBellyandRice.JPG" },
+    { name: "Pork Bowl", price: "$8", img: "/Food_Photo/PorkBowl.jpg" },
+    { name: "Pork on the Bun", price: "$8", img: "/Food_Photo/Porkonthebun.jpg" },
+    { name: "Ribs Rice and Salad", price: "$10", img: "/Food_Photo/RibsRiceandSalad.jpg" },
   ];
 
   return (
