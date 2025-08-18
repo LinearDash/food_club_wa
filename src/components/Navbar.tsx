@@ -57,6 +57,17 @@ const Navbar = () => {
     return false;
   };
 
+  const handleInPageClick = (e: React.MouseEvent, id: string) => {
+    if (isHome && (id === "about" || id === "contact")) {
+      e.preventDefault();
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-primary text-white shadow-lg z-50 border-b border-white/10">
       <div className="max-w-6xl mx-auto flex justify-between items-center p-3 sm:p-4">
@@ -74,6 +85,7 @@ const Navbar = () => {
               <Link
                 href={getHrefFor(id)}
                 className={`${isActive(id) ? "font-semibold underline underline-offset-4 decoration-white" : ""} hover:text-white/80 transition`}
+                onClick={(e) => handleInPageClick(e, id)}
               >
                 {id.charAt(0).toUpperCase() + id.slice(1)}
               </Link>
@@ -99,7 +111,7 @@ const Navbar = () => {
                     <Link
                       href={getHrefFor(id)}
                       className={`${isActive(id) ? "text-primary font-semibold" : ""} hover:text-primary transition`}
-                      onClick={() => setIsOpen(false)}
+                      onClick={(e) => handleInPageClick(e, id)}
                     >
                       {id.charAt(0).toUpperCase() + id.slice(1)}
                     </Link>
