@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 
 const sections = ["home", "menu", "events", "about", "contact"];
 
@@ -9,6 +10,12 @@ const Navbar = () => {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [activeSection, setActiveSection] = useState("home");
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // Close mobile menu on route change
+    setIsOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (!isHome) return;
@@ -52,9 +59,16 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-primary text-white shadow-lg z-50 border-b border-white/10">
-      <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-        <h1 className="font-bold text-2xl">Food Truck WA 🚚</h1>
-        <ul className="flex gap-6">
+      <div className="max-w-6xl mx-auto flex justify-between items-center p-3 sm:p-4">
+        <h1 className="font-bold text-xl sm:text-2xl">Food Truck WA 🚚</h1>
+        <button
+          className="md:hidden inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 hover:bg-white/20"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open menu"
+        >
+          <RxHamburgerMenu className="w-6 h-6" />
+        </button>
+        <ul className="hidden md:flex gap-4 md:gap-6">
           {navItems.map((id) => (
             <li key={id}>
               <Link
@@ -67,6 +81,35 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+
+      {isOpen && (
+        <div className="md:hidden">
+          <div className="fixed inset-0 bg-black/40" onClick={() => setIsOpen(false)} />
+          <div className="fixed top-0 right-0 h-full w-72 max-w-[80%] bg-white text-gray-900 shadow-xl p-6 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <span className="font-semibold text-lg">Menu</span>
+              <button aria-label="Close menu" onClick={() => setIsOpen(false)} className="p-2 rounded hover:bg-gray-100">
+                <RxCross2 className="w-5 h-5" />
+              </button>
+            </div>
+            <nav>
+              <ul className="flex flex-col gap-4">
+                {navItems.map((id) => (
+                  <li key={id}>
+                    <Link
+                      href={getHrefFor(id)}
+                      className={`${isActive(id) ? "text-primary font-semibold" : ""} hover:text-primary transition`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {id.charAt(0).toUpperCase() + id.slice(1)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

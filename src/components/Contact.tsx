@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-white px-4 text-gray-900">
+    <section id="contact" className="py-20 bg-white px-4 text-gray-900 scroll-mt-24">
       <h2 className="text-3xl font-bold text-center mb-10 text-primary">Get In Touch 📞</h2>
       <div className="max-w-4xl mx-auto text-center">
         <p className="mb-2">📍 Find us at: Lakeside, Pokhara</p>

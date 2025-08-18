@@ -10,9 +10,9 @@ export type EventCardProps = {
 export default function EventCard({ name, date, location, img }: EventCardProps) {
   return (
     <div className="bg-white rounded-xl shadow-sm hover:shadow-md border border-primary/10 transition-shadow overflow-hidden">
-      <Image src={img} alt={name} width={600} height={300} className="w-full h-40 md:h-48 object-cover" />
+      <Image src={img} alt={name} width={600} height={300} className="w-full h-36 sm:h-40 md:h-48 object-cover" />
       <div className="p-5 text-left">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">{name}</h3>
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{name}</h3>
         <div className="text-sm text-gray-700 space-y-1">
           <p>
             <span className="font-medium text-gray-800">Date:</span> {date}

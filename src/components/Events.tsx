@@ -8,8 +8,8 @@ const Events = () => {
   ];
 
   return (
-    <section id="events" className="py-20 bg-white px-4 text-gray-900">
-      <h2 className="text-3xl font-bold text-center mb-10 text-primary">Events 🎉</h2>
+    <section id="events" className="py-20 bg-white px-4 text-gray-900 scroll-mt-24">
+      <h2 className="text-3xl font-bold text-center mb-10 text-primary">Catch Us At 🎉</h2>
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {events.map((e) => (
           <EventCard key={`${e.name}-${e.date}`} name={e.name} date={e.date} location={e.location} img={e.img} />

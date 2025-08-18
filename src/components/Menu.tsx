@@ -8,7 +8,7 @@ const Menu = () => {
     { name: "Schnitzel Loaded Chicken", price: "$5", img: "/Food_Photo/schnitzloadedchicken.jpg" },
   ];
   return (
-    <section id="menu" className="py-20 bg-gray-50 text-gray-900">
+    <section id="menu" className="py-20 bg-gray-50 text-gray-900 scroll-mt-24">
       <h2 className="text-3xl font-bold text-center mb-10 text-primary">Our Menu 🍔</h2>
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-4">
         {items.map((item, i) => (
