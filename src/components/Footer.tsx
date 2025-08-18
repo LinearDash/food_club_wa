@@ -26,13 +26,14 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 items-start">
           <div>
-            <p className="font-semibold text-lg">Food Truck WA</p>
+            <p className="font-semibold text-lg">Food Club WA Pty Ltd</p>
             <p className="text-white/80 text-sm mt-2">Bold flavors on wheels. Track us, find us, and grab a bite!</p>
           </div>
           <div>
             <p className="font-semibold">Contact</p>
-            <p className="text-white/80 text-sm mt-2">Email: hello@foodtruckwa.com</p>
-            <p className="text-white/80 text-sm">Phone: +61 400 000 000</p>
+            <p className="text-white/80 text-sm mt-2">📍 29A Ewart Street, Midvale WA 6056</p>
+            <p className="text-white/80 text-sm">📞 0430 067 850</p>
+            <p className="text-white/80 text-sm">📧 foodclubwa2023@gmail.com</p>
           </div>
           <div>
             <p className="font-semibold">Quick Links</p>
@@ -79,7 +80,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/80">
-          <p>© {new Date().getFullYear()} Food Truck WA. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Food Club WA Pty Ltd. All rights reserved.</p>
           <Link href="/#home" onClick={(e) => handleInPageClick(e, "home")} className="hover:underline">Back to top ↑</Link>
         </div>
       </div>

@@ -1,28 +1,129 @@
+"use client";
+
+import { useState } from "react";
+
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<null | { ok: boolean; message: string }>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus(null);
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      setStatus({ ok: true, message: "Thanks! Your message has been sent." });
+      e.currentTarget.reset();
+    } catch (err) {
+      setStatus({ ok: false, message: "Something went wrong. Please try again later." });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section id="contact" className="py-20 bg-white px-4 text-gray-900 scroll-mt-24">
-      <h2 className="text-3xl font-bold text-center mb-10 text-primary">Get In Touch 📞</h2>
-      <div className="max-w-4xl mx-auto text-center">
-        <p className="mb-2">📍 Find us at: Lakeside, Pokhara</p>
-        <p className="mb-8">📧 Email: hello@tastywheels.com</p>
-        <form className="max-w-md mx-auto space-y-4">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-          />
-          <textarea
-            placeholder="Your Message"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-          ></textarea>
-          <button className="px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow hover:bg-primary/90">
-            Send
-          </button>
+      <h2 className="text-3xl font-bold text-center mb-3 text-primary">Get In Touch</h2>
+      <p className="text-center text-gray-600 mb-10">Questions, catering, or collabs? Drop us a line and we'll get back to you.</p>
+      <div className="max-w-3xl mx-auto">
+        {/* Info */}
+        <div className="mb-6 text-center text-sm text-gray-700">
+          <p className="mb-1">📍 29A Ewart Street, Midvale WA 6056</p>
+          <p className="mb-1">📞 0430 067 850</p>
+          <p>📧 foodclubwa2023@gmail.com</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-primary/10 shadow-sm p-5 sm:p-6 space-y-4">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                autoComplete="name"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium mb-1">Your Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium mb-1">Phone (optional)</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                pattern="[0-9+\-\s()]{7,}"
+                placeholder="+61 400 000 000"
+                autoComplete="tel"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+            </div>
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium mb-1">Subject</label>
+              <select
+                id="subject"
+                name="subject"
+                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/50"
+                defaultValue="general"
+              >
+                <option value="general">General Question</option>
+                <option value="catering">Catering / Events</option>
+                <option value="feedback">Feedback</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium mb-1">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              required
+              placeholder="Tell us what you're after..."
+              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+            ></textarea>
+            <p className="mt-1 text-xs text-gray-500">We usually respond within 1 business day.</p>
+          </div>
+
+          {status && (
+            <div className={`${status.ok ? "text-green-700 bg-green-50" : "text-red-700 bg-red-50"} text-sm rounded-md px-3 py-2`}>
+              {status.message}
+            </div>
+          )}
+
+          <div className="flex items-center justify-between gap-4">
+            <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+              <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
+              Subscribe to updates and pop-up alerts
+            </label>
+            <button type="submit" disabled={isSubmitting} className="px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow hover:bg-primary/90 disabled:opacity-70">
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </button>
+          </div>
         </form>
       </div>
     </section>
