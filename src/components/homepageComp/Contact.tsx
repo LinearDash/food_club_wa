@@ -13,14 +13,10 @@ import { CheckCircle, MapPin, Phone, Mail } from "lucide-react"
 import z from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { formSchema } from "@/lib/schema"
+import { send } from "@/lib/email"
 
-const formSchema = z.object({
-  fullName: z.string().min(1, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().optional(),
-  subject: z.enum(["general", "catering", "feedback", "other"], "Subject is required"),
-  message: z.string().min(1, "Message is required"),
-})
+
 
 const Contact = () => {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -45,7 +41,7 @@ const Contact = () => {
       setIsSubmitting(true)
   
       try {
-        console.log("Form submitted with data:", value)
+        send(value)
   
         // Simulate form submission
         await new Promise((resolve) => setTimeout(resolve, 1000))
