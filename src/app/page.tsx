@@ -1,12 +1,12 @@
 // Homepage component - main landing page for Food Club WA
 // Imports all the main sections and renders them in order
-import Hero from "@/components/Hero";
-import Events from "@/components/Events";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
-import Menu from "@/components/Menu";
-import Team from "@/components/Team";
-import Testimonials from "@/components/Testimonials";
+import Hero from "@/components/homepageComp/Hero";
+import Events from "@/components/homepageComp/Events";
+import About from "@/components/homepageComp/About";
+import Contact from "@/components/homepageComp/Contact";
+import Menu from "@/components/homepageComp/Menu";
+import Team from "@/components/homepageComp/Team";
+import Testimonials from "@/components/homepageComp/Testimonials";
 
 export default function Home() {
   return (
