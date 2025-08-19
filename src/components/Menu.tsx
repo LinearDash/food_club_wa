@@ -11,10 +11,14 @@ const Menu = () => {
   ];
 
   return (
-    <section id="menu" className="py-20 bg-background-alt text-gray-900 scroll-mt-24">
+    <section id="menu" className="py-20 bg-white text-gray-900 scroll-mt-24">
       {/* Section heading */}
       <h2 className="text-3xl font-bold text-center mb-10 text-primary">Our Menu</h2>
 
+      {/* Menu Description */}
+      <p className="max-w-3xl mx-auto text-center text-lg text-muted mb-10">
+        Check out our menu and discover a variety of delicious options crafted to satisfy your cravings.
+      </p>
       {/* Menu items grid - 3 columns on desktop, responsive on mobile */}
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-4">
         {items.map((item, i) => (

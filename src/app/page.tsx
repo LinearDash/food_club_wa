@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Menu from "@/components/Menu";
 import Team from "@/components/Team";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -21,6 +22,9 @@ export default function Home() {
 
       {/* About section - company info, highlights, and statistics */}
       <About />
+
+      {/* Testimonials section - customer reviews */}
+      <Testimonials />
 
       {/* Team section - introduces key team members */}
       <Team />

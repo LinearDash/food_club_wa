@@ -14,6 +14,11 @@ const Events = () => {
       {/* Section heading */}
       <h2 className="text-3xl font-bold text-center mb-10 text-blue-950">Events</h2>
 
+       {/* Event Description */}
+      <p className="max-w-3xl mx-auto text-center text-lg mb-10">
+        Discover the exciting events we&apos;ve been a part of and join us for more unforgettable experiences!
+      </p>
+
       {/* Events grid - responsive: 1 column on mobile, 2 on tablet, 3 on desktop */}
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {events.map((e) => (

@@ -10,12 +10,12 @@ const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-20 bg-secondary px-4 text-gray-900">
+    <section id="team" className="py-20 bg-white px-4 text-gray-900">
       {/* Section heading */}
-      <h2 className="text-3xl font-bold text-center mb-6 text-gray-900">Our Team</h2>
+      <h2 className="text-3xl font-bold text-center mb-6 text-primary">Our Team</h2>
 
       {/* Team description */}
-      <p className="max-w-3xl mx-auto text-center text-lg text-white mb-10">
+      <p className="max-w-3xl mx-auto text-center text-lg text-muted mb-10">
         Small team, big heart. Meet the folks who keep Food Club WA rolling.
       </p>
 
