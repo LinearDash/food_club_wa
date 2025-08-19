@@ -5,9 +5,9 @@ const Menu = () => {
   // Sample menu items for the homepage preview
   // This shows just 3 items to give visitors a taste - full menu available at /menu
   const items = [
-    { name: "Beef Burger and Chips", price: "$8", img: "/Food_Photo/BeefBurgerandchips.jpg", description: "Juicy beef patty with crispy chips and house sauce." },
-    { name: "Cinnamon and Berry Donut", price: "$6", img: "/Food_Photo/CinnamonandberryDonut.jpg", description: "Warm cinnamon donut topped with fresh berries." },
-    { name: "Schnitzel Loaded Chicken", price: "$5", img: "/Food_Photo/schnitzloadedchicken.jpg", description: "Crispy chicken schnitzel loaded with flavor." },
+    { name: "Beef Burger and Chips", img: "/Food_Photo/BeefBurgerandchips.jpg", description: "Juicy beef patty with crispy chips and house sauce." },
+    { name: "Cinnamon and Berry Donut", img: "/Food_Photo/CinnamonandberryDonut.jpg", description: "Warm cinnamon donut topped with fresh berries." },
+    { name: "Schnitzel Loaded Chicken", img: "/Food_Photo/schnitzloadedchicken.jpg", description: "Crispy chicken schnitzel loaded with flavor." },
   ];
 
   return (
@@ -18,7 +18,7 @@ const Menu = () => {
       {/* Menu items grid - 3 columns on desktop, responsive on mobile */}
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-4">
         {items.map((item, i) => (
-          <FoodCard key={i} name={item.name} price={item.price} img={item.img} description={item.description} />
+          <FoodCard key={i} name={item.name} img={item.img} description={item.description} />
         ))}
       </div>
 

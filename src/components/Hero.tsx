@@ -23,10 +23,10 @@ const Hero = () => {
       <style jsx>{`
         @keyframes move-left {
           0% {
-        transform: translateX(100%);
+        transform: translateX(110%);
           }
           100% {
-        transform: translateX(-100%);
+        transform: translateX(-110%);
           }
         }
       `}</style>
