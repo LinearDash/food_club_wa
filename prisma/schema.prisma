@@ -6,11 +6,35 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+// Enum for contact form subject
+enum ContactSubject {
+  GENERAL
+  CATERING
+  FEEDBACK
+  OTHER
+}
+
+// Stores messages submitted from the Contact form
+model ContactMessage {
+  id        String          @id @default(cuid())
+  fullName  String
+  email     String
+  phone     String?
+  subject   ContactSubject?
+  message   String
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  @@index([createdAt])
+  @@index([email])
 }
 
 model FoodItem {
